@@ -10,7 +10,7 @@ export class IxnButton extends Button {
             {
                 className: 'sharp ' + tag.props.className,
                 onClick: e => {
-                    alert();
+                    alert("This is run within IxnButton component which extends Button");
                     tag.props.onClick(e);
                 }
             },
@@ -18,24 +18,12 @@ export class IxnButton extends Button {
     }
 }
 
-export const IxnButton2 = props => {
-    const newProps = Object.assign({}, props)
-    newProps.className = props.className + " sharp"
-    newProps.onClick = e => {
-        alert(1);
-        if (props.onClick) {
-            props.onClick(e)
-        }
-    }
-    return <Button {...newProps} />
-}
-
-export const IxnButton3 = props => {
+export const IxnButtonComp = props => {
     const newProps = {
         ...props,
         className: props.className + " sharp",
         onClick: e => {
-            alert(1);
+            alert("This is run within IxnButtonComp component, which __composes__ Button");
             if (props.onClick) {
                 props.onClick(e)
             }
